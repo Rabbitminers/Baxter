@@ -16,30 +16,11 @@ class ProfanityFilter(commands.Cog, name="profanity"):
     async def on_message(self, message):
         if profanity.contains_profanity(message.content):
             await message.delete()
-            await message.author.send(f"Your message contained profanity. Please avoid using such words on the server.")
 
     @commands.Cog.listener()
     async def on_message_edit(self, old, message):
         if profanity.contains_profanity(message.content):
             await message.delete()
-            await message.author.send(f"Your message contained profanity. Please avoid using such words on the server.")
-
-    @commands.hybrid_command(
-        name="profanitytest",
-        description="This is a testing command that does nothing.",
-    )
-    # This will only allow non-blacklisted members to execute the command
-    @checks.not_blacklisted()
-    # This will only allow owners of the bot to execute the command -> config.json
-    @checks.is_owner()
-    async def testcommand(self, context: Context):
-        """
-        This is a testing command that does nothing.
-
-        :param context: The application command context.
-        """
-        print("Hello world!")
-
 
 # And then we finally add the cog to the bot so that it can load, unload, reload and use it's content.
 async def setup(bot):
