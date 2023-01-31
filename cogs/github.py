@@ -32,17 +32,5 @@ class GitHub(commands.Cog, name="github"):
             channel = self.bot.get_channel(int(self.channel_id))
             await channel.send(message)
 
-    @commands.hybrid_command(
-        name="gittest",
-        description="This is a testing command that does nothing.",
-    )
-    async def testcommand(self, context: Context):
-        """
-        This is a testing command that does nothing.
-
-        :param context: The application command context.
-        """
-        print("Hello world!")
-
 async def setup(bot):
     await bot.add_cog(GitHub(bot))
