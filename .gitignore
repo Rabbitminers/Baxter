@@ -147,5 +147,3 @@ cython_debug/
 discord.log
 
 config.json
-
-censor_list.txt
