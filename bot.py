@@ -52,6 +52,7 @@ intents = discord.Intents.all()
 bot = Bot(command_prefix=commands.when_mentioned_or(
     config["prefix"]), intents=intents, help_command=None)
 
+
 # Setup both of the loggers
 class LoggingFormatter(logging.Formatter):
     # Colors
@@ -239,13 +240,9 @@ async def on_command_error(context: Context, error) -> None:
         )
         await context.send(embed=embed)
     else:
-        embed = discord.Embed(
-            title="Error!",
-            # We need to capitalize because the command arguments have no capital letter in the code.
-            description=str(error).capitalize(),
-            color=0xE02B2B
-        )
-        await context.send(embed=embed)
+        bot.logger.info(f"{str(error).capitalize()}")
+        pass
+
 
 async def load_cogs() -> None:
     """
