@@ -41,7 +41,7 @@ class RoleSelectView(discord.ui.View):
 class RoleAssignment(commands.Cog, name="roles"):
     def __init__(self, bot):
         self.bot = bot
-        self.message_id = 1074821220945637456
+        self.message_id = 1074824437343453204
 
         self.roles = {
             '🎡': "Beta Release Pings",
@@ -55,8 +55,6 @@ class RoleAssignment(commands.Cog, name="roles"):
         emoji = payload.emoji
         guild_id = payload.guild_id
         user_id = payload.user_id
-
-        print(emoji)
 
         if (message_id != self.message_id):
             return
@@ -78,8 +76,6 @@ class RoleAssignment(commands.Cog, name="roles"):
         emoji = payload.emoji
         guild_id = payload.guild_id
         user_id = payload.user_id
-
-        print(emoji)
 
         if (message_id != self.message_id):
             return
