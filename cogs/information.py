@@ -18,7 +18,7 @@ class Information(commands.Cog, name="information"):
             return
         if self.rtf.predict([message.content])[0]:
             embed = discord.Embed(
-                description=f"You're question might be answered by the FAQ in #rules-and-info\n\n(This message is based on a prediction of youre message if this is incorrect please tell us)",
+                description=f"Your question might be answered by the FAQ in <#1069396544379428984>\n\n(This message is based on a prediction of your message; if this is incorrect, please tell us)",
                 color=0x9C84EF
             )
             await message.channel.send(embed=embed)
